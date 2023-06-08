@@ -31,12 +31,23 @@
     }
 
     main {
-        margin: 3rem;
+        height: fit-content;
+        width: fit-content;
+
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        margin: auto;
+        padding: 3em;
+
+        text-align: center;
+
         border-radius: 8px;
         box-shadow: rgba(0, 0, 0, 0.175) 0px 10px 40px 10px;
-        width: fit-content;
-        padding: 3em;
-        text-align: center;
+        background-color: var(--iww-bg);
     }
 
     img {
@@ -122,7 +133,6 @@
     <script text="text/javascript">
         const bm8gc25vb3BpbmcgYXJvdW5k = "aXd3bmljb3NpYUByaXNldXAubmV0";
         const cmlzZXVw = document.getElementById("cmlzZXVw");
-        { {/*  cmlzZXVw.innerHTML = atob(`${bm8gc25vb3BpbmcgYXJvdW5k}`);  */ } }
         cmlzZXVw.setAttribute('href', `mailto:${atob(bm8gc25vb3BpbmcgYXJvdW5k)}`);
     </script>
 </body>
