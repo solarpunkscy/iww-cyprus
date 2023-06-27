@@ -98,7 +98,7 @@
 
     main>h1>span#happy-birthday {
         display: block;
-        font-size: 1rem;
+        /* font-size: 1rem; */
     }
 
     .rainbow-text {
@@ -116,7 +116,7 @@
     }
 </style>
 
-<body id="body-confetti">
+<body>
 
     <main id="main-confetti">
 
@@ -126,7 +126,7 @@
 
         <h1><span id="happy-birthday" hidden>Happy Birthday</span>IWW <span id="cyprus">Cyprus</span></h1>
 
-        <a id="confetti" class="button" onclick="happyBirthday(this)">&#127881;</a>
+        <a id="confetti" class="button" onclick="happyBirthday(event)">&#127881;</a>
 
         <small>New site <wbr>on its way...</small>
 
@@ -163,23 +163,33 @@
 
     <script src="./confetti.min.js" text="text/javascript"></script>
 
+    <script text="text/javascript">
+        // const confetti = new Confetti('confetti');
+        // confetti.setCount(75);
+        // confetti.setSize(1);
+        // confetti.setPower(25);
+        // confetti.destroyTarget(false);
+        const main = new Confetti('main-confetti');
+        main.setCount(75);
+        main.setSize(1);
+        main.setPower(25);
+        main.destroyTarget(false);
+    </script>
 
     <script>
-        function happyBirthday(element) {
-            element.onclick = null;
+        let happyBirthdayMode = false;
+        function happyBirthday(event) {
+            event.preventDefault();
+
+            if (happyBirthdayMode) {
+                return;
+            }
+            event.target.onclick = null;
 
             const happyBday = document.querySelector('#happy-birthday');
             const cyprus = document.querySelector('#cyprus');
             cyprus.setAttribute('hidden', 'hidden');
             happyBday.removeAttribute('hidden');
-
-            const main = new Confetti('main-confetti');
-            main.setCount(75);
-            main.setSize(1);
-            main.setPower(25);
-            main.destroyTarget(false);
-
-            console.log(element);
         }
     </script>
 </body>
